@@ -16,7 +16,8 @@ Ein zentraler SessionStart-Hook `~/.claude/hooks/auto-install.sh` (aus `Agentsan
 stellt bei jedem Session-Start idempotent sicher:
 
 1. Skills/Agenten/Regeln in `~/.claude` (via `install.sh` der Ökosystem-Repos),
-2. globale CLI-Tools der Skills (z. B. `agent-browser` via `npm i -g`),
+2. globale CLI-Tools aus der Registry `config/auto-install.tools` (eine Zeile pro CLI, z. B. `agent-browser`),
+2b. automatisch entdeckte skill-eigene `auto-install.sh` (leichtes Setup); schwer/On-Demand → `install-deps.sh`,
 3. den Browser-Executable-Pfad (vorinstalliertes Chromium → `AGENT_BROWSER_EXECUTABLE_PATH`).
 
 Bringt ein neuer Skill CLI-/Setup-Bedarf mit → Schritt in `auto-install.sh`
